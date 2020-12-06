@@ -7,6 +7,7 @@ public class Main extends JFrame
 
     char[] sentMap = new char[100];
     char[] receiveMap = new char[100];
+    String[] shipList = {"Patrol Boat", "Submarine", "Cruiser", "Destroyer", "Aircraft Carrier"};
     Tile[] sentTiles = new Tile[100];
     Tile[] receiveTiles = new Tile[100];
 
@@ -17,7 +18,11 @@ public class Main extends JFrame
         JFrame frame = new JFrame();
         JPanel sentPanel = new JPanel();
         JPanel receivePanel = new JPanel();
-        
+        JPanel infoPanel = new JPanel();
+
+        JList ships = new JList(shipList);
+
+    
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1000, 500);
         frame.setResizable(false);
@@ -25,11 +30,14 @@ public class Main extends JFrame
         frame.setLayout(new GridLayout(1, 2));
         frame.getContentPane().add(sentPanel);
         frame.getContentPane().add(receivePanel);
+        frame.getContentPane().add(infoPanel);
         frame.setLocationRelativeTo(null);
         //frame.getContentPane().add(receivePanel);
         sentPanel.setBackground(Color.GRAY);
-        sentPanel.setLayout(new GridLayout(10, 10));
-        receivePanel.setLayout(new GridLayout(10, 10));
+        sentPanel.setLayout(new GridLayout(10, 10, 0, 0));
+        receivePanel.setLayout(new GridLayout(10, 10, 0, 0));
+        infoPanel.add(ships);
+        infoPanel.setMaximumSize(new Dimension(100, 500));
         initializeMap();
         draw(sentPanel, receivePanel);
         frame.setVisible(true);
