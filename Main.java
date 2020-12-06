@@ -57,7 +57,6 @@ public class Main extends JFrame
             sentPanel.add(sentTiles[i]);
             receivePanel.add(receiveTiles[i]);
             
-            
         }
     }
 
@@ -82,6 +81,7 @@ public class Main extends JFrame
             case 2: main.loadGame(); break; 
             case 3: System.exit(0); break;
             default: break; }
+        scan.close();
 
         
     }
